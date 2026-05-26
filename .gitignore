@@ -1,0 +1,12 @@
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+.idea/
+.vscode/
+nbproject/private/
+
+*.log
+*.tmp
