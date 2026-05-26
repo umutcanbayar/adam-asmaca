@@ -83,11 +83,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="tablar" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnKurallar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="tablar" pref="422" max="32767" attributes="0"/>
+          <Component id="tablar" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnKurallar" min="-2" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -99,8 +108,8 @@
         <Container class="javax.swing.JPanel" name="pnlOyunTab">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="Oyun Oynama">
+                <Property name="tabTitle" type="java.lang.String" value="Oyun Oynama"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -199,18 +208,177 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="pnlAlfabe">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="741" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="16"/>
+                    <Property name="horizontalGap" type="int" value="2"/>
+                    <Property name="rows" type="int" value="2"/>
+                    <Property name="verticalGap" type="int" value="2"/>
                   </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JButton" name="btnA">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="A"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnB">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="B"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnC">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="C"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnCc">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#xc7;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnD">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="D"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnE">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="E"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnF">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="F"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnG">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="G"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnGg">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#x11e;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnH">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="H"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnI">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="I"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnIi">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#x130;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnJ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="J"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnK">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="K"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnL">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="L"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnM">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="M"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnN">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="N"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnO">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="O"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnOo">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#xd6;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnP">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="P"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnQ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Q"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnR">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="R"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnS">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="S"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSs">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#x15e;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnT">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="T"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnU">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="U"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnUu">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="&#xdc;"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnV">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="V"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnW">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="W"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnX">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="X"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnY">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Y"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnZ">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Z"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblTahminler">
                   <Properties>
@@ -246,6 +414,7 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pnlKelime" max="32767" attributes="0"/>
+                          <Component id="pnlIpucu" max="32767" attributes="0"/>
                           <Component id="pnlTahmin" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
@@ -253,6 +422,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="pnlKelime" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pnlIpucu" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="pnlTahmin" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -274,6 +445,46 @@
                           </Group>
                         </DimensionLayout>
                       </Layout>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="pnlIpucu">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnIpucu" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblIpucu" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnIpucu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblIpucu" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="btnIpucu">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Ipucu Al"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIpucuActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblIpucu">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Ipucu: 10. hatadan sonra acilir."/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="pnlTahmin">
 
@@ -434,8 +645,8 @@
         <Container class="javax.swing.JPanel" name="pnlSkorTab">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab2">
-                <Property name="tabTitle" type="java.lang.String" value="tab2"/>
+              <JTabbedPaneConstraints tabName="Eski Skorlar">
+                <Property name="tabTitle" type="java.lang.String" value="Eski Skorlar"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -534,8 +745,8 @@
         <Container class="javax.swing.JPanel" name="pnlLogTab">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab3">
-                <Property name="tabTitle" type="java.lang.String" value="tab3"/>
+              <JTabbedPaneConstraints tabName="Loglar">
+                <Property name="tabTitle" type="java.lang.String" value="Loglar"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -632,5 +843,13 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnKurallar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kurallar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKurallarActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

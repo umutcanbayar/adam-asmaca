@@ -1,36 +1,38 @@
 # Adam Asmaca Oyunu
 
-Bu proje Programlama Dilleri II dersi icin Java Swing ile gelistirilmis bir Adam Asmaca oyunudur.
+Bu proje Programlama Dilleri II dersi icin Java Swing kullanarak yaptigim Adam Asmaca oyunudur.
+Oyunda sifre girisi, kelime tahmini, harf tahmini, skor kaydi ve log kaydi gibi bolumler bulunmaktadir.
 
-GitHub'a yuklerken proje kok klasoru olarak bu klasor secilmelidir:
+Projeyi GitHub'a yuklerken ana proje klasoru olarak `mavenproject3` klasoru kullanilabilir.
 
-```text
-mavenproject3
-```
+## Oyunda Neler Var?
 
-## Proje Ozellikleri
-
-- Program acilisinda sifre kontrolu yapilir.
-- Sifre yoksa kullanicidan yeni sifre alinir ve `sifre.txt` dosyasina kaydedilir.
+- Program acilirken once sifre kontrolu yapilir.
+- Daha once sifre belirlenmediyse kullanicidan yeni sifre alinir ve `sifre.txt` dosyasina kaydedilir.
 - Sifre varsa kullaniciya 3 deneme hakki verilir.
-- Sifre girisi ve temizleme islemlerinde `JPasswordField` kullanilir.
-- Giris ve sifre denemeleri `log.txt` dosyasina tarih-saat bilgisiyle kaydedilir.
-- Oyun ekrani `JTabbedPane` uzerinde hazirlanmistir.
-- Oyun oynama ekraninda rastgele kelime secilir ve harf sayisi kadar dinamik `JLabel` olusturulur.
-- Harf tahmini ve kelime tahmini icin iki ayri `JTextField` kullanilir.
-- Tahmin edilen harfler ekranda ayrica gosterilir.
-- Harf tahmini icin tiklanabilir `JButton` tabanli alfabe paneli bulunur.
+- Sifre girisleri ve program hareketleri `log.txt` dosyasina tarih ve saat ile yazilir.
+- Ust menude `Oyuna Basla`, `Yeniden Baslat` ve cikis gibi secenekler vardir.
+- Oyun ekrani `JTabbedPane` ile 3 sekmeye ayrilmistir:
+  - Oyun Oynama
+  - Eski Skorlar
+  - Loglar
+- Oyun baslayinca rastgele bir kelime secilir.
+- Secilen kelimenin harf sayisi kadar ekrana `JLabel` eklenir ve baslangicta harfler `*` olarak gorunur.
+- Harf tahmini ve kelime tahmini icin iki ayri `JTextField` bulunur.
+- Harfler ustteki alfabe butonlarindan da secilebilir.
+- Turkce alfabede olmayan `Q`, `W`, `X` harfleri ekranda soluk ve pasif olarak gosterilir.
 - Yanlis tahminlerde `1.jpg` ile `11.jpg` arasindaki resimler sirayla gosterilir.
 - 11 yanlis tahminde oyun kaybedilir.
-- Oyun suresi saniye olarak takip edilir.
-- Oyun sonucu, sure, tarih ve kelime bilgisi `oyunlar.txt` dosyasina kaydedilir.
-- Eski skorlar `JTable` ile listelenir.
-- Log kayitlari `JTable` ile listelenir.
-- Skor ve log dosyalari sifre dogrulamasi ile temizlenebilir.
+- Oyun suresi saniye olarak tutulur.
+- Oyun bitince sonuc, sure, tarih ve kelime `oyunlar.txt` dosyasina kaydedilir.
+- Eski skorlar ve loglar tablolarda `JTable` ile gosterilir.
+- Skor ve log dosyalari sifre dogrulamasi yapildiktan sonra temizlenebilir.
+- Kurallari tekrar gostermek icin `Kurallar` butonu vardir.
+- 10. yanlis tahminden sonra oyuncu isterse ipucu alabilir.
 
 ## Dosya Yapisi
 
-Program asagidaki klasorleri kullanir:
+Program dosyalari asagidaki klasor yapisini kullanir:
 
 ```text
 C:\P2Oyun
@@ -46,45 +48,57 @@ C:\P2Oyun
     |-- sifre.txt
 ```
 
-## Kullanilan Teknolojiler
+`kelimeler.txt` dosyasina kelimeler tek basina ya da ipucu ile birlikte yazilabilir.
+
+```text
+Kutuphane;Kitaplarla ilgili bir yer
+Bilgisayar;Klavye ve ekranla kullanilir
+```
+
+Noktali virgulden onceki kisim kelime olarak, sonraki kisim ipucu olarak kullanilir.
+Kelime 6 harften kisa ise oyuna eklenmez.
+
+## Kullandigim Yapilar
 
 - Java
 - Swing
 - JFrame
 - JPanel
+- JButton
+- JLabel
+- JTextField
 - JTabbedPane
 - JTable
 - JMenuBar
 - Timer
-- ActionListener / ActionPerformed
-- BufferedReader / BufferedWriter
-- Dosya okuma-yazma islemleri
-- JPanel uzerine kurulmus oyun ve tablo panelleri
+- ActionListener
+- BufferedReader ve BufferedWriter
+- Dosya okuma ve dosya yazma islemleri
 
-## Calistirma
+## Projeyi Calistirma
 
 Proje NetBeans ile acilip calistirilabilir.
 
-Varsayilan ana sinif:
+Ana form sinifi:
 
 ```text
 adamasmaca.AdamAsmacaForm
 ```
 
-NetBeans ana sinif olarak eski giris sinifini isterse su sinif da uygulamayi acar:
+NetBeans farkli bir ana sinif isterse bu sinif da oyunu baslatir:
 
 ```text
 adamasmaca.AdamAsmacaApp
 ```
 
-## NetBeans Design Ekrani
+## NetBeans Design Kismi
 
-Arayuz dosyalari NetBeans form yapisina uygundur:
+Arayuz icin NetBeans form dosyasi da eklenmistir.
 
 ```text
 src/main/java/adamasmaca/AdamAsmacaForm.java
 src/main/java/adamasmaca/AdamAsmacaForm.form
 ```
 
-NetBeans'te `Source Packages > adamasmaca > AdamAsmacaForm.java` dosyasi acilip ustteki `Design` sekmesine gecilebilir.
-Alfabe harfleri ve kelime kutulari oyun baslayinca kodla olusturulur; bu yuzden Design ekraninda o iki panel bos gorunebilir.
+NetBeans uzerinden `AdamAsmacaForm.java` dosyasi acilip `Design` sekmesinden arayuz gorulebilir.
+Alfabe butonlari form dosyasinda vardir. Kelime kutulari ise oyun baslayinca secilen kelimeye gore kod tarafinda olusturulur.

@@ -24,39 +24,45 @@ public class AdamAsmacaForm extends JFrame {
     private final String[] alfabe = {
         "A", "B", "C", "\u00c7", "D", "E", "F", "G", "\u011e", "H",
         "I", "\u0130", "J", "K", "L", "M", "N", "O", "\u00d6", "P",
-        "R", "S", "\u015e", "T", "U", "\u00dc", "V", "Y", "Z"
+        "Q", "R", "S", "\u015e", "T", "U", "\u00dc", "V", "W", "X",
+        "Y", "Z"
     };
 
     private ArrayList<String> kelimeler = new ArrayList<String>();
+    private ArrayList<String> ipuclari = new ArrayList<String>();
     private ArrayList<String> tahminler = new ArrayList<String>();
-    private ArrayList<JLabel> kelimeLabellari = new ArrayList<JLabel>();
-    private ArrayList<JButton> alfabeButonlari = new ArrayList<JButton>();
+    private ArrayList<JLabel> kelimeKutulari = new ArrayList<JLabel>();
+    private ArrayList<JButton> harfButonlari = new ArrayList<JButton>();
 
     private String secilenKelime = "";
+    private String secilenIpucu = "";
     private String[] kelimeHarfleri, gorunenHarfler;
     private int yanlisSayisi = 0, sure = 0;
     private boolean oyunAktif = false;
+    private boolean ipucuKullanildi = false;
 
     private javax.swing.Timer timer;
-    private Random rnd = new Random();
-    private Locale tr = new Locale("tr", "TR");
-    private SimpleDateFormat tarih = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private Random rastgele = new Random();
+    private Locale turkce = new Locale("tr", "TR");
+    private SimpleDateFormat tarihSaat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public AdamAsmacaForm() {
         initComponents();
+        getContentPane().setComponentZOrder(btnKurallar, 0);
         setLocationRelativeTo(null);
-        dosyalariHazirla();
+        dosyaHazirla();
         logYaz("PROGRAM_ACILDI", "Uygulama baslatildi");
 
         if (!sifreKontrol()) {
             System.exit(0);
         }
 
-        girisMesajiGoster();
-        alfabeOlustur();
-        tahminAlanlariniAyarla(false);
-        kelimeleriOku();
-        tablolariYenile();
+        girisMesaji();
+        alfabeYap();
+        tahminAcKapat(false);
+        ipucuSifirla();
+        kelimeOku();
+        tabloYenile();
     }
 
     public static void main(String[] args) {
@@ -75,10 +81,45 @@ public class AdamAsmacaForm extends JFrame {
         lblHak = new javax.swing.JLabel();
         lblDurum = new javax.swing.JLabel();
         pnlAlfabe = new javax.swing.JPanel();
+        btnA = new javax.swing.JButton();
+        btnB = new javax.swing.JButton();
+        btnC = new javax.swing.JButton();
+        btnCc = new javax.swing.JButton();
+        btnD = new javax.swing.JButton();
+        btnE = new javax.swing.JButton();
+        btnF = new javax.swing.JButton();
+        btnG = new javax.swing.JButton();
+        btnGg = new javax.swing.JButton();
+        btnH = new javax.swing.JButton();
+        btnI = new javax.swing.JButton();
+        btnIi = new javax.swing.JButton();
+        btnJ = new javax.swing.JButton();
+        btnK = new javax.swing.JButton();
+        btnL = new javax.swing.JButton();
+        btnM = new javax.swing.JButton();
+        btnN = new javax.swing.JButton();
+        btnO = new javax.swing.JButton();
+        btnOo = new javax.swing.JButton();
+        btnP = new javax.swing.JButton();
+        btnQ = new javax.swing.JButton();
+        btnR = new javax.swing.JButton();
+        btnS = new javax.swing.JButton();
+        btnSs = new javax.swing.JButton();
+        btnT = new javax.swing.JButton();
+        btnU = new javax.swing.JButton();
+        btnUu = new javax.swing.JButton();
+        btnV = new javax.swing.JButton();
+        btnW = new javax.swing.JButton();
+        btnX = new javax.swing.JButton();
+        btnY = new javax.swing.JButton();
+        btnZ = new javax.swing.JButton();
         lblTahminler = new javax.swing.JLabel();
         pnlOrta = new javax.swing.JPanel();
         pnlSol = new javax.swing.JPanel();
         pnlKelime = new javax.swing.JPanel();
+        pnlIpucu = new javax.swing.JPanel();
+        btnIpucu = new javax.swing.JButton();
+        lblIpucu = new javax.swing.JLabel();
         pnlTahmin = new javax.swing.JPanel();
         lblHarfTahmini = new javax.swing.JLabel();
         txtHarf = new javax.swing.JTextField();
@@ -103,6 +144,7 @@ public class AdamAsmacaForm extends JFrame {
         pnlLogButon = new javax.swing.JPanel();
         btnLogYenile = new javax.swing.JButton();
         btnLogTemizle = new javax.swing.JButton();
+        btnKurallar = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuOyun = new javax.swing.JMenu();
         itemBasla = new javax.swing.JMenuItem();
@@ -143,16 +185,106 @@ public class AdamAsmacaForm extends JFrame {
             .addComponent(lblDurum, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pnlAlfabeLayout = new javax.swing.GroupLayout(pnlAlfabe);
-        pnlAlfabe.setLayout(pnlAlfabeLayout);
-        pnlAlfabeLayout.setHorizontalGroup(
-            pnlAlfabeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 741, Short.MAX_VALUE)
-        );
-        pnlAlfabeLayout.setVerticalGroup(
-            pnlAlfabeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 68, Short.MAX_VALUE)
-        );
+        pnlAlfabe.setLayout(new java.awt.GridLayout(2, 16, 2, 2));
+
+        btnA.setText("A");
+        pnlAlfabe.add(btnA);
+
+        btnB.setText("B");
+        pnlAlfabe.add(btnB);
+
+        btnC.setText("C");
+        pnlAlfabe.add(btnC);
+
+        btnCc.setText("Ç");
+        pnlAlfabe.add(btnCc);
+
+        btnD.setText("D");
+        pnlAlfabe.add(btnD);
+
+        btnE.setText("E");
+        pnlAlfabe.add(btnE);
+
+        btnF.setText("F");
+        pnlAlfabe.add(btnF);
+
+        btnG.setText("G");
+        pnlAlfabe.add(btnG);
+
+        btnGg.setText("Ğ");
+        pnlAlfabe.add(btnGg);
+
+        btnH.setText("H");
+        pnlAlfabe.add(btnH);
+
+        btnI.setText("I");
+        pnlAlfabe.add(btnI);
+
+        btnIi.setText("İ");
+        pnlAlfabe.add(btnIi);
+
+        btnJ.setText("J");
+        pnlAlfabe.add(btnJ);
+
+        btnK.setText("K");
+        pnlAlfabe.add(btnK);
+
+        btnL.setText("L");
+        pnlAlfabe.add(btnL);
+
+        btnM.setText("M");
+        pnlAlfabe.add(btnM);
+
+        btnN.setText("N");
+        pnlAlfabe.add(btnN);
+
+        btnO.setText("O");
+        pnlAlfabe.add(btnO);
+
+        btnOo.setText("Ö");
+        pnlAlfabe.add(btnOo);
+
+        btnP.setText("P");
+        pnlAlfabe.add(btnP);
+
+        btnQ.setText("Q");
+        btnQ.setEnabled(false);
+        pnlAlfabe.add(btnQ);
+
+        btnR.setText("R");
+        pnlAlfabe.add(btnR);
+
+        btnS.setText("S");
+        pnlAlfabe.add(btnS);
+
+        btnSs.setText("Ş");
+        pnlAlfabe.add(btnSs);
+
+        btnT.setText("T");
+        pnlAlfabe.add(btnT);
+
+        btnU.setText("U");
+        pnlAlfabe.add(btnU);
+
+        btnUu.setText("Ü");
+        pnlAlfabe.add(btnUu);
+
+        btnV.setText("V");
+        pnlAlfabe.add(btnV);
+
+        btnW.setText("W");
+        btnW.setEnabled(false);
+        pnlAlfabe.add(btnW);
+
+        btnX.setText("X");
+        btnX.setEnabled(false);
+        pnlAlfabe.add(btnX);
+
+        btnY.setText("Y");
+        pnlAlfabe.add(btnY);
+
+        btnZ.setText("Z");
+        pnlAlfabe.add(btnZ);
 
         lblTahminler.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTahminler.setText("Tahmin edilen harfler: -");
@@ -184,6 +316,34 @@ public class AdamAsmacaForm extends JFrame {
         pnlKelimeLayout.setVerticalGroup(
             pnlKelimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 146, Short.MAX_VALUE)
+        );
+
+        btnIpucu.setText("Ipucu Al");
+        btnIpucu.setEnabled(false);
+        btnIpucu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIpucuActionPerformed(evt);
+            }
+        });
+
+        lblIpucu.setText("Ipucu: 10. hatadan sonra acilir.");
+
+        javax.swing.GroupLayout pnlIpucuLayout = new javax.swing.GroupLayout(pnlIpucu);
+        pnlIpucu.setLayout(pnlIpucuLayout);
+        pnlIpucuLayout.setHorizontalGroup(
+            pnlIpucuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIpucuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnIpucu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblIpucu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlIpucuLayout.setVerticalGroup(
+            pnlIpucuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlIpucuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnIpucu)
+                .addComponent(lblIpucu))
         );
 
         lblHarfTahmini.setText("Harf Tahmini:");
@@ -252,12 +412,15 @@ public class AdamAsmacaForm extends JFrame {
         pnlSolLayout.setHorizontalGroup(
             pnlSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlKelime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlIpucu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlTahmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlSolLayout.setVerticalGroup(
             pnlSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSolLayout.createSequentialGroup()
                 .addComponent(pnlKelime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlIpucu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTahmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -348,7 +511,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addContainerGap())
         );
 
-        tablar.addTab("tab1", pnlOyunTab);
+        tablar.addTab("Oyun Oynama", pnlOyunTab);
 
         tblSkorlar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -413,7 +576,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addContainerGap())
         );
 
-        tablar.addTab("tab2", pnlSkorTab);
+        tablar.addTab("Eski Skorlar", pnlSkorTab);
 
         tblLoglar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -478,7 +641,14 @@ public class AdamAsmacaForm extends JFrame {
                 .addContainerGap())
         );
 
-        tablar.addTab("tab3", pnlLogTab);
+        tablar.addTab("Loglar", pnlLogTab);
+
+        btnKurallar.setText("Kurallar");
+        btnKurallar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKurallarActionPerformed(evt);
+            }
+        });
 
         menuOyun.setText("Oyun");
 
@@ -528,10 +698,17 @@ public class AdamAsmacaForm extends JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tablar)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnKurallar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tablar, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+            .addComponent(tablar)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnKurallar))
         );
 
         pack();
@@ -545,6 +722,10 @@ public class AdamAsmacaForm extends JFrame {
         oyunuBaslat();
     }//GEN-LAST:event_btnYenidenBaslatActionPerformed
 
+    private void btnKurallarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurallarActionPerformed
+        girisMesaji();
+    }//GEN-LAST:event_btnKurallarActionPerformed
+
     private void btnHarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHarfActionPerformed
         harfTahminEt();
     }//GEN-LAST:event_btnHarfActionPerformed
@@ -552,6 +733,10 @@ public class AdamAsmacaForm extends JFrame {
     private void btnKelimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKelimeActionPerformed
         kelimeTahminEt();
     }//GEN-LAST:event_btnKelimeActionPerformed
+
+    private void btnIpucuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIpucuActionPerformed
+        ipucuGoster();
+    }//GEN-LAST:event_btnIpucuActionPerformed
 
     private void txtHarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHarfActionPerformed
         harfTahminEt();
@@ -562,7 +747,7 @@ public class AdamAsmacaForm extends JFrame {
     }//GEN-LAST:event_txtKelimeActionPerformed
 
     private void btnSkorYenileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkorYenileActionPerformed
-        tablolariYenile();
+        tabloYenile();
     }//GEN-LAST:event_btnSkorYenileActionPerformed
 
     private void btnSkorTemizleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkorTemizleActionPerformed
@@ -570,7 +755,7 @@ public class AdamAsmacaForm extends JFrame {
     }//GEN-LAST:event_btnSkorTemizleActionPerformed
 
     private void btnLogYenileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogYenileActionPerformed
-        tablolariYenile();
+        tabloYenile();
     }//GEN-LAST:event_btnLogYenileActionPerformed
 
     private void btnLogTemizleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogTemizleActionPerformed
@@ -591,10 +776,10 @@ public class AdamAsmacaForm extends JFrame {
     }//GEN-LAST:event_itemCikisActionPerformed
 
     private void itemTablolariYenileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemTablolariYenileActionPerformed
-        tablolariYenile();
+        tabloYenile();
     }//GEN-LAST:event_itemTablolariYenileActionPerformed
 
-    private void girisMesajiGoster() {
+    private void girisMesaji() {
         JOptionPane.showMessageDialog(this,
                 "Adam Asmaca Oyununa Hos Geldiniz\n"
                 + "11 yanlis tahmin hakkiniz vardir.\n"
@@ -603,31 +788,41 @@ public class AdamAsmacaForm extends JFrame {
                 "Oyun Bilgilendirme", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void alfabeOlustur() {
-        pnlAlfabe.removeAll();
-        pnlAlfabe.setLayout(new FlowLayout(FlowLayout.CENTER, 4, 4));
-        alfabeButonlari.clear();
-        for (int i = 0; i < alfabe.length; i++) {
+    private void alfabeYap() {
+        JButton[] butonlar = {
+            btnA, btnB, btnC, btnCc, btnD, btnE, btnF, btnG,
+            btnGg, btnH, btnI, btnIi, btnJ, btnK, btnL, btnM,
+            btnN, btnO, btnOo, btnP, btnQ, btnR, btnS, btnSs,
+            btnT, btnU, btnUu, btnV, btnW, btnX, btnY, btnZ
+        };
+        harfButonlari.clear();
+        for (int i = 0; i < butonlar.length; i++) {
             final String harf = alfabe[i];
-            JButton button = new JButton(harf);
-            button.setPreferredSize(new Dimension(38, 30));
-            button.setMargin(new Insets(1, 1, 1, 1));
+            JButton button = butonlar[i];
+            button.setText(harf);
+            button.setPreferredSize(new Dimension(28, 24));
+            button.setMargin(new Insets(0, 0, 0, 0));
             button.setFocusPainted(false);
             button.setBackground(Color.WHITE);
-            button.setFont(new Font("Arial", Font.BOLD, 13));
+            button.setFont(new Font("Arial", Font.BOLD, 12));
             button.setEnabled(false);
-            button.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    harfTahminEtButondan(harf);
-                }
-            });
-            pnlAlfabe.add(button);
-            alfabeButonlari.add(button);
+            if (turkceHarfMi(harf)) {
+                button.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        harfButonTahmin(harf);
+                    }
+                });
+            } else {
+                button.setBackground(new Color(230, 230, 230));
+                button.setForeground(Color.GRAY);
+                button.setToolTipText("Turkce alfabede yok");
+            }
+            harfButonlari.add(button);
         }
     }
 
     private void oyunuBaslat() {
-        kelimeleriOku();
+        kelimeOku();
         if (kelimeler.isEmpty()) {
             JOptionPane.showMessageDialog(this, "kelimeler.txt icinde kelime bulunamadi.");
             return;
@@ -636,17 +831,23 @@ public class AdamAsmacaForm extends JFrame {
             timer.stop();
         }
 
-        secilenKelime = kelimeler.get(rnd.nextInt(kelimeler.size())).toUpperCase(tr);
-        kelimeHarfleri = harflereAyir(secilenKelime);
+        int kelimeNo = rastgele.nextInt(kelimeler.size());
+        secilenKelime = kelimeler.get(kelimeNo).toUpperCase(turkce);
+        secilenIpucu = "";
+        if (kelimeNo < ipuclari.size()) {
+            secilenIpucu = ipuclari.get(kelimeNo);
+        }
+        kelimeHarfleri = harfAyir(secilenKelime);
         gorunenHarfler = new String[kelimeHarfleri.length];
         yanlisSayisi = 0;
         sure = 0;
         oyunAktif = true;
+        ipucuKullanildi = false;
         tahminler.clear();
 
         pnlKelime.removeAll();
         pnlKelime.setLayout(new FlowLayout(FlowLayout.CENTER, 8, 25));
-        kelimeLabellari.clear();
+        kelimeKutulari.clear();
         for (int i = 0; i < kelimeHarfleri.length; i++) {
             gorunenHarfler[i] = "*";
             JLabel label = new JLabel("*", SwingConstants.CENTER);
@@ -654,7 +855,7 @@ public class AdamAsmacaForm extends JFrame {
             label.setBorder(BorderFactory.createLineBorder(Color.GRAY));
             label.setFont(new Font("Arial", Font.BOLD, 28));
             pnlKelime.add(label);
-            kelimeLabellari.add(label);
+            kelimeKutulari.add(label);
         }
         pnlKelime.revalidate();
         pnlKelime.repaint();
@@ -668,7 +869,8 @@ public class AdamAsmacaForm extends JFrame {
         lblTahminler.setText("Tahmin edilen harfler: -");
         lblResim.setIcon(null);
         lblResim.setText("Ilk yanlis tahminde 1.jpg gosterilecek");
-        tahminAlanlariniAyarla(true);
+        ipucuSifirla();
+        tahminAcKapat(true);
 
         timer = new javax.swing.Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -682,16 +884,16 @@ public class AdamAsmacaForm extends JFrame {
     }
 
     private void harfTahminEt() {
-        String harf = txtHarf.getText().trim().toUpperCase(tr);
+        String harf = txtHarf.getText().trim().toUpperCase(turkce);
         txtHarf.setText("");
-        harfTahmininiIsle(harf);
+        harfKontrol(harf);
     }
 
-    private void harfTahminEtButondan(String harf) {
-        harfTahmininiIsle(harf);
+    private void harfButonTahmin(String harf) {
+        harfKontrol(harf);
     }
 
-    private void harfTahmininiIsle(String harf) {
+    private void harfKontrol(String harf) {
         if (!oyunAktif) {
             JOptionPane.showMessageDialog(this, "Once oyunu baslatiniz.");
             return;
@@ -700,27 +902,32 @@ public class AdamAsmacaForm extends JFrame {
             JOptionPane.showMessageDialog(this, "Harf tahmini giriniz.");
             return;
         }
-        harf = harflereAyir(harf)[0];
+        harf = harfAyir(harf)[0];
+        if (!turkceHarfMi(harf)) {
+            JOptionPane.showMessageDialog(this, "Sadece Turkce alfabedeki harfleri kullaniniz.");
+            lblDurum.setText("Turkce alfabede olmayan harf: " + harf);
+            return;
+        }
         if (tahminler.contains(harf)) {
             lblDurum.setText("Bu harf daha once tahmin edildi: " + harf);
             return;
         }
 
         tahminler.add(harf);
-        tahminleriYaz();
+        tahminYaz();
         boolean dogru = false;
         for (int i = 0; i < kelimeHarfleri.length; i++) {
             if (kelimeHarfleri[i].equals(harf)) {
                 gorunenHarfler[i] = harf;
-                kelimeLabellari.get(i).setText(harf);
+                kelimeKutulari.get(i).setText(harf);
                 dogru = true;
             }
         }
 
-        alfabeIsaretle(harf, dogru);
+        harfRenkle(harf, dogru);
         if (dogru) {
             lblDurum.setText("Dogru harf: " + harf);
-            kazanmaKontrol();
+            kazanmaBak();
         } else {
             lblDurum.setText("Yanlis harf: " + harf);
             yanlisTahmin();
@@ -732,7 +939,7 @@ public class AdamAsmacaForm extends JFrame {
             JOptionPane.showMessageDialog(this, "Once oyunu baslatiniz.");
             return;
         }
-        String tahmin = txtKelime.getText().trim().toUpperCase(tr);
+        String tahmin = txtKelime.getText().trim().toUpperCase(turkce);
         txtKelime.setText("");
         if (tahmin.length() == 0) {
             JOptionPane.showMessageDialog(this, "Kelime tahmini giriniz.");
@@ -742,8 +949,8 @@ public class AdamAsmacaForm extends JFrame {
         if (tahmin.equals(secilenKelime)) {
             for (int i = 0; i < kelimeHarfleri.length; i++) {
                 gorunenHarfler[i] = kelimeHarfleri[i];
-                kelimeLabellari.get(i).setText(kelimeHarfleri[i]);
-                alfabeIsaretle(kelimeHarfleri[i], true);
+                kelimeKutulari.get(i).setText(kelimeHarfleri[i]);
+                harfRenkle(kelimeHarfleri[i], true);
             }
             oyunuBitir(true);
         } else {
@@ -755,13 +962,14 @@ public class AdamAsmacaForm extends JFrame {
     private void yanlisTahmin() {
         yanlisSayisi++;
         lblHak.setText("Yanlis: " + yanlisSayisi + " / 11");
-        resmiGoster(yanlisSayisi);
+        resimGoster(yanlisSayisi);
+        ipucuDurum();
         if (yanlisSayisi >= 11) {
             oyunuBitir(false);
         }
     }
 
-    private void kazanmaKontrol() {
+    private void kazanmaBak() {
         for (int i = 0; i < gorunenHarfler.length; i++) {
             if (gorunenHarfler[i].equals("*")) {
                 return;
@@ -775,30 +983,71 @@ public class AdamAsmacaForm extends JFrame {
         if (timer != null) {
             timer.stop();
         }
-        tahminAlanlariniAyarla(false);
+        tahminAcKapat(false);
+        btnIpucu.setEnabled(false);
 
         String sonuc = kazandi ? "Kazandi" : "Kaybetti";
         lblDurum.setText("Oyun bitti. Sonuc: " + sonuc + " Kelime: " + secilenKelime);
         oyunKaydiYaz(sonuc);
         logYaz(kazandi ? "OYUN_KAZANILDI" : "OYUN_KAYBEDILDI",
                 "Kelime: " + secilenKelime + ", Sure: " + sure + " sn");
-        tablolariYenile();
+        tabloYenile();
         JOptionPane.showMessageDialog(this,
                 "Sonuc: " + sonuc + "\nKelime: " + secilenKelime + "\nSure: " + sure + " sn");
     }
 
-    private void tahminAlanlariniAyarla(boolean aktif) {
+    private void tahminAcKapat(boolean aktif) {
         txtHarf.setEnabled(aktif);
         txtKelime.setEnabled(aktif);
         btnHarf.setEnabled(aktif);
         btnKelime.setEnabled(aktif);
-        for (int i = 0; i < alfabeButonlari.size(); i++) {
-            JButton button = alfabeButonlari.get(i);
-            button.setEnabled(aktif && !tahminler.contains(button.getText()));
+        for (int i = 0; i < harfButonlari.size(); i++) {
+            JButton button = harfButonlari.get(i);
+            button.setEnabled(aktif && turkceHarfMi(button.getText()) && !tahminler.contains(button.getText()));
+        }
+        if (!aktif) {
+            btnIpucu.setEnabled(false);
         }
     }
 
-    private void tahminleriYaz() {
+    private void ipucuSifirla() {
+        ipucuKullanildi = false;
+        btnIpucu.setEnabled(false);
+        lblIpucu.setText("Ipucu: 10. hatadan sonra acilir.");
+    }
+
+    private void ipucuDurum() {
+        if (!oyunAktif || ipucuKullanildi) {
+            btnIpucu.setEnabled(false);
+            return;
+        }
+        if (yanlisSayisi >= 10) {
+            btnIpucu.setEnabled(true);
+            lblIpucu.setText("Ipucu kullanilabilir.");
+        } else {
+            btnIpucu.setEnabled(false);
+            lblIpucu.setText("Ipucu: " + (10 - yanlisSayisi) + " hata sonra acilir.");
+        }
+    }
+
+    private void ipucuGoster() {
+        if (!oyunAktif || yanlisSayisi < 10 || ipucuKullanildi) {
+            return;
+        }
+        ipucuKullanildi = true;
+        lblIpucu.setText("Ipucu: " + ipucuMetni());
+        btnIpucu.setEnabled(false);
+        logYaz("IPUCU_KULLANILDI", "Kelime: " + secilenKelime);
+    }
+
+    private String ipucuMetni() {
+        if (secilenIpucu != null && secilenIpucu.trim().length() > 0) {
+            return secilenIpucu;
+        }
+        return "Kelime " + kelimeHarfleri.length + " harflidir.";
+    }
+
+    private void tahminYaz() {
         String yazi = "";
         for (int i = 0; i < tahminler.size(); i++) {
             yazi += tahminler.get(i);
@@ -810,17 +1059,23 @@ public class AdamAsmacaForm extends JFrame {
     }
 
     private void alfabeSifirla() {
-        for (int i = 0; i < alfabeButonlari.size(); i++) {
-            JButton button = alfabeButonlari.get(i);
-            button.setBackground(Color.WHITE);
-            button.setForeground(Color.BLACK);
-            button.setEnabled(oyunAktif);
+        for (int i = 0; i < harfButonlari.size(); i++) {
+            JButton button = harfButonlari.get(i);
+            if (turkceHarfMi(button.getText())) {
+                button.setBackground(Color.WHITE);
+                button.setForeground(Color.BLACK);
+                button.setEnabled(oyunAktif);
+            } else {
+                button.setBackground(new Color(230, 230, 230));
+                button.setForeground(Color.GRAY);
+                button.setEnabled(false);
+            }
         }
     }
 
-    private void alfabeIsaretle(String harf, boolean dogru) {
-        for (int i = 0; i < alfabeButonlari.size(); i++) {
-            JButton button = alfabeButonlari.get(i);
+    private void harfRenkle(String harf, boolean dogru) {
+        for (int i = 0; i < harfButonlari.size(); i++) {
+            JButton button = harfButonlari.get(i);
             if (button.getText().equals(harf)) {
                 button.setBackground(dogru ? new Color(180, 240, 180) : new Color(250, 190, 190));
                 button.setEnabled(false);
@@ -829,7 +1084,7 @@ public class AdamAsmacaForm extends JFrame {
         }
     }
 
-    private void resmiGoster(int resimNo) {
+    private void resimGoster(int resimNo) {
         ImageIcon icon = new ImageIcon(resimKlasoru + "\\" + resimNo + ".jpg");
         if (icon.getIconWidth() <= 0) {
             lblResim.setIcon(null);
@@ -856,12 +1111,24 @@ public class AdamAsmacaForm extends JFrame {
         lblResim.setIcon(new ImageIcon(img));
     }
 
-    private String[] harflereAyir(String kelime) {
+    private String[] harfAyir(String kelime) {
         String[] harfler = new String[kelime.length()];
         for (int i = 0; i < kelime.length(); i++) {
             harfler[i] = String.valueOf(kelime.charAt(i));
         }
         return harfler;
+    }
+
+    private boolean turkceHarfMi(String harf) {
+        if (harf.equals("Q") || harf.equals("W") || harf.equals("X")) {
+            return false;
+        }
+        for (int i = 0; i < alfabe.length; i++) {
+            if (alfabe[i].equals(harf)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean sifreKontrol() {
@@ -924,15 +1191,26 @@ public class AdamAsmacaForm extends JFrame {
         return dogru;
     }
 
-    private void kelimeleriOku() {
+    private void kelimeOku() {
         kelimeler.clear();
+        ipuclari.clear();
         try {
             BufferedReader br = dosyaOku(kelimeDosyasi);
             String satir;
             while ((satir = br.readLine()) != null) {
                 satir = satir.trim();
-                if (satir.length() >= 6) {
-                    kelimeler.add(satir);
+                String kelime = satir;
+                String ipucu = "";
+                if (satir.indexOf(";") >= 0) {
+                    String[] parcalar = satir.split(";", 2);
+                    kelime = parcalar[0].trim();
+                    if (parcalar.length > 1) {
+                        ipucu = parcalar[1].trim();
+                    }
+                }
+                if (kelime.length() >= 6) {
+                    kelimeler.add(kelime);
+                    ipuclari.add(ipucu);
                 }
             }
             br.close();
@@ -941,7 +1219,7 @@ public class AdamAsmacaForm extends JFrame {
         }
     }
 
-    private void tablolariYenile() {
+    private void tabloYenile() {
         tabloDoldur((DefaultTableModel) tblSkorlar.getModel(), oyunDosyasi, 4);
         tabloDoldur((DefaultTableModel) tblLoglar.getModel(), logDosyasi, 3);
     }
@@ -976,13 +1254,13 @@ public class AdamAsmacaForm extends JFrame {
             bw.write("");
             bw.close();
             JOptionPane.showMessageDialog(this, ad + " temizlendi.");
-            tablolariYenile();
+            tabloYenile();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Dosya temizlenemedi.");
         }
     }
 
-    private void dosyalariHazirla() {
+    private void dosyaHazirla() {
         new File(resimKlasoru).mkdirs();
         new File(txtKlasoru).mkdirs();
         dosyaYoksaOlustur(kelimeDosyasi);
@@ -1008,12 +1286,36 @@ public class AdamAsmacaForm extends JFrame {
             return;
         }
         String[] varsayilan = {
-            "bilgisayar", "programlama", "kutuphane", "algoritma", "degisken",
-            "donguler", "metotlar", "nesneler", "siniflar", "kalitim",
-            "arayuz", "veritabani", "internet", "klavye", "monitor",
-            "uygulama", "tasarim", "pencere", "butonlar", "tablolar",
-            "dosyalar", "sifreleme", "rastgele", "zamanlayici", "etiketler",
-            "tahmin", "kelimeler", "kayitlar", "sonuclar", "basarili"
+            "bilgisayar;Teknolojik bir cihaz",
+            "programlama;Kod yazma isi",
+            "kutuphane;Kitaplarla ilgili bir yer",
+            "algoritma;Adim adim cozum yolu",
+            "degisken;Degeri degisebilen bilgi",
+            "donguler;Tekrar eden kod yapisi",
+            "metotlar;Komutlari toplayan bolum",
+            "nesneler;Siniftan olusan varliklar",
+            "siniflar;Nesnelerin kalibi",
+            "kalitim;Ozellik aktarma konusu",
+            "arayuz;Kullanicinin gordugu bolum",
+            "veritabani;Bilgilerin saklandigi yer",
+            "internet;Bilgisayarlari baglayan ag",
+            "klavye;Yazi yazmaya yarar",
+            "monitor;Ekran olarak kullanilir",
+            "uygulama;Calisan program",
+            "tasarim;Gorunum duzenleme isi",
+            "pencere;Ekranda acilan alan",
+            "butonlar;Tiklanan arayuz elemani",
+            "tablolar;Satir ve sutundan olusur",
+            "dosyalar;Bilgi saklayan kayitlar",
+            "sifreleme;Gizleme ve koruma islemi",
+            "rastgele;Secimi belli olmayan",
+            "zamanlayici;Sure tutmaya yarar",
+            "etiketler;Ekranda yazi gosteren eleman",
+            "tahmin;Oyuncunun cevabi",
+            "kelimeler;Oyunda bulunmaya calisilir",
+            "kayitlar;Eski bilgiler burada durur",
+            "sonuclar;Oyunun bitis bilgileri",
+            "basarili;Oyunu kazanan icin kullanilir"
         };
         try {
             BufferedWriter bw = dosyaYaz(kelimeDosyasi, false);
@@ -1051,7 +1353,7 @@ public class AdamAsmacaForm extends JFrame {
     private void logYaz(String etiket, String aciklama) {
         try {
             BufferedWriter bw = dosyaYaz(logDosyasi, true);
-            bw.write(tarih.format(new Date()) + "|" + etiket + "|" + aciklama);
+            bw.write(tarihSaat.format(new Date()) + "|" + etiket + "|" + aciklama);
             bw.newLine();
             bw.close();
         } catch (Exception ex) {
@@ -1061,7 +1363,7 @@ public class AdamAsmacaForm extends JFrame {
     private void oyunKaydiYaz(String sonuc) {
         try {
             BufferedWriter bw = dosyaYaz(oyunDosyasi, true);
-            bw.write(tarih.format(new Date()) + "|" + sure + "|" + sonuc + "|" + secilenKelime);
+            bw.write(tarihSaat.format(new Date()) + "|" + sure + "|" + sonuc + "|" + secilenKelime);
             bw.newLine();
             bw.close();
         } catch (Exception ex) {
@@ -1078,14 +1380,48 @@ public class AdamAsmacaForm extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnA;
+    private javax.swing.JButton btnB;
     private javax.swing.JButton btnBasla;
+    private javax.swing.JButton btnC;
+    private javax.swing.JButton btnCc;
+    private javax.swing.JButton btnD;
+    private javax.swing.JButton btnE;
+    private javax.swing.JButton btnF;
+    private javax.swing.JButton btnG;
+    private javax.swing.JButton btnGg;
+    private javax.swing.JButton btnH;
     private javax.swing.JButton btnHarf;
+    private javax.swing.JButton btnI;
+    private javax.swing.JButton btnIi;
+    private javax.swing.JButton btnIpucu;
+    private javax.swing.JButton btnJ;
+    private javax.swing.JButton btnK;
     private javax.swing.JButton btnKelime;
+    private javax.swing.JButton btnKurallar;
+    private javax.swing.JButton btnL;
     private javax.swing.JButton btnLogTemizle;
     private javax.swing.JButton btnLogYenile;
+    private javax.swing.JButton btnM;
+    private javax.swing.JButton btnN;
+    private javax.swing.JButton btnO;
+    private javax.swing.JButton btnOo;
+    private javax.swing.JButton btnP;
+    private javax.swing.JButton btnQ;
+    private javax.swing.JButton btnR;
+    private javax.swing.JButton btnS;
     private javax.swing.JButton btnSkorTemizle;
     private javax.swing.JButton btnSkorYenile;
+    private javax.swing.JButton btnSs;
+    private javax.swing.JButton btnT;
+    private javax.swing.JButton btnU;
+    private javax.swing.JButton btnUu;
+    private javax.swing.JButton btnV;
+    private javax.swing.JButton btnW;
+    private javax.swing.JButton btnX;
+    private javax.swing.JButton btnY;
     private javax.swing.JButton btnYenidenBaslat;
+    private javax.swing.JButton btnZ;
     private javax.swing.JMenuItem itemBasla;
     private javax.swing.JMenuItem itemCikis;
     private javax.swing.JMenuItem itemTablolariYenile;
@@ -1093,6 +1429,7 @@ public class AdamAsmacaForm extends JFrame {
     private javax.swing.JLabel lblDurum;
     private javax.swing.JLabel lblHak;
     private javax.swing.JLabel lblHarfTahmini;
+    private javax.swing.JLabel lblIpucu;
     private javax.swing.JLabel lblKelimeTahmini;
     private javax.swing.JLabel lblResim;
     private javax.swing.JLabel lblSure;
@@ -1103,6 +1440,7 @@ public class AdamAsmacaForm extends JFrame {
     private javax.swing.JMenu menuOyun;
     private javax.swing.JPanel pnlAlfabe;
     private javax.swing.JPanel pnlBilgi;
+    private javax.swing.JPanel pnlIpucu;
     private javax.swing.JPanel pnlKelime;
     private javax.swing.JPanel pnlLogButon;
     private javax.swing.JPanel pnlLogTab;
