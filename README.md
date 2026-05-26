@@ -48,8 +48,7 @@ C:\P2Oyun
     |-- sifre.txt
 ```
 
-`kelimeler.txt` dosyasina kelimeler tek basina ya da ipucu ile birlikte yazilabilir.
-
+## kelimeler.txt
 ```text
 Kutuphane;Kitaplarla ilgili bir yer
 Bilgisayar;Klavye ve ekranla kullanilir
@@ -91,14 +90,3 @@ NetBeans farkli bir ana sinif isterse bu sinif da oyunu baslatir:
 adamasmaca.AdamAsmacaApp
 ```
 
-## NetBeans Design Kismi
-
-Arayuz icin NetBeans form dosyasi da eklenmistir.
-
-```text
-src/main/java/adamasmaca/AdamAsmacaForm.java
-src/main/java/adamasmaca/AdamAsmacaForm.form
-```
-
-NetBeans uzerinden `AdamAsmacaForm.java` dosyasi acilip `Design` sekmesinden arayuz gorulebilir.
-Alfabe butonlari form dosyasinda vardir. Kelime kutulari ise oyun baslayinca secilen kelimeye gore kod tarafinda olusturulur.
