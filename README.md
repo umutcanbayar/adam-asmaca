@@ -28,7 +28,7 @@ Projeyi GitHub'a yuklerken ana proje klasoru olarak `mavenproject3` klasoru kull
 - Eski skorlar ve loglar tablolarda `JTable` ile gosterilir.
 - Skor ve log dosyalari sifre dogrulamasi yapildiktan sonra temizlenebilir.
 - Kurallari tekrar gostermek icin `Kurallar` butonu vardir.
-- 10. yanlis tahminden sonra oyuncu isterse ipucu alabilir.
+- 10 . yanlis tahminden sonra oyuncu isterse ipucu alabilir.
 
 ## Dosya Yapisi
 
