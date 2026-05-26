@@ -41,7 +41,7 @@ public class AdamAsmacaForm extends JFrame {
     private DateTimeFormatter tarihSaat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     public AdamAsmacaForm() {
         initComponents();
-        getContentPane().setComponentZOrder(btnKurallar, 0);
+        getContentPane().setComponentZOrder(btnInfo, 0);
         setLocationRelativeTo(null);
         dosyaHazirla();
         logYaz("PROGRAM_ACILDI", "Uygulama baslatildi");
@@ -61,6 +61,7 @@ public class AdamAsmacaForm extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         tablar = new javax.swing.JTabbedPane();
         pnlOyunTab = new javax.swing.JPanel();
         pnlUst = new javax.swing.JPanel();
@@ -132,7 +133,7 @@ public class AdamAsmacaForm extends JFrame {
         pnlLogButon = new javax.swing.JPanel();
         btnLogYenile = new javax.swing.JButton();
         btnLogTemizle = new javax.swing.JButton();
-        btnKurallar = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuOyun = new javax.swing.JMenu();
         itemBasla = new javax.swing.JMenuItem();
@@ -141,15 +142,20 @@ public class AdamAsmacaForm extends JFrame {
         itemCikis = new javax.swing.JMenuItem();
         menuKayitlar = new javax.swing.JMenu();
         itemTablolariYenile = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Adam Asmaca");
         setPreferredSize(new java.awt.Dimension(900, 650));
+
         lblSure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSure.setText("Sure: 0 sn");
+
         lblHak.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHak.setText("Yanlis: 0 / 11");
+
         lblDurum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDurum.setText("Oyuna baslamak icin butona tiklayiniz.");
+
         javax.swing.GroupLayout pnlBilgiLayout = new javax.swing.GroupLayout(pnlBilgi);
         pnlBilgi.setLayout(pnlBilgiLayout);
         pnlBilgiLayout.setHorizontalGroup(
@@ -167,76 +173,111 @@ public class AdamAsmacaForm extends JFrame {
             .addComponent(lblHak, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
             .addComponent(lblDurum, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
+
         pnlAlfabe.setLayout(new java.awt.GridLayout(2, 16, 2, 2));
+
         btnA.setText("A");
         pnlAlfabe.add(btnA);
+
         btnB.setText("B");
         pnlAlfabe.add(btnB);
+
         btnC.setText("C");
         pnlAlfabe.add(btnC);
-        btnCc.setText("Ã‡");
+
+        btnCc.setText("Ç");
         pnlAlfabe.add(btnCc);
+
         btnD.setText("D");
         pnlAlfabe.add(btnD);
+
         btnE.setText("E");
         pnlAlfabe.add(btnE);
+
         btnF.setText("F");
         pnlAlfabe.add(btnF);
+
         btnG.setText("G");
         pnlAlfabe.add(btnG);
-        btnGg.setText("Ä");
+
+        btnGg.setText("Ğ");
         pnlAlfabe.add(btnGg);
+
         btnH.setText("H");
         pnlAlfabe.add(btnH);
+
         btnI.setText("I");
         pnlAlfabe.add(btnI);
-        btnIi.setText("Ä°");
+
+        btnIi.setText("İ");
         pnlAlfabe.add(btnIi);
+
         btnJ.setText("J");
         pnlAlfabe.add(btnJ);
+
         btnK.setText("K");
         pnlAlfabe.add(btnK);
+
         btnL.setText("L");
         pnlAlfabe.add(btnL);
+
         btnM.setText("M");
         pnlAlfabe.add(btnM);
+
         btnN.setText("N");
         pnlAlfabe.add(btnN);
+
         btnO.setText("O");
         pnlAlfabe.add(btnO);
-        btnOo.setText("Ã–");
+
+        btnOo.setText("Ö");
         pnlAlfabe.add(btnOo);
+
         btnP.setText("P");
         pnlAlfabe.add(btnP);
+
         btnQ.setText("Q");
         btnQ.setEnabled(false);
         pnlAlfabe.add(btnQ);
+
         btnR.setText("R");
         pnlAlfabe.add(btnR);
+
         btnS.setText("S");
         pnlAlfabe.add(btnS);
-        btnSs.setText("Å");
+
+        btnSs.setText("Ş");
         pnlAlfabe.add(btnSs);
+
         btnT.setText("T");
         pnlAlfabe.add(btnT);
+
         btnU.setText("U");
         pnlAlfabe.add(btnU);
-        btnUu.setText("Ãœ");
+
+        btnUu.setText("Ü");
         pnlAlfabe.add(btnUu);
+
         btnV.setText("V");
         pnlAlfabe.add(btnV);
+
         btnW.setText("W");
         btnW.setEnabled(false);
         pnlAlfabe.add(btnW);
+
         btnX.setText("X");
         btnX.setEnabled(false);
         pnlAlfabe.add(btnX);
+
         btnY.setText("Y");
         pnlAlfabe.add(btnY);
+
         btnZ.setText("Z");
         pnlAlfabe.add(btnZ);
+
         lblTahminler.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTahminler.setText("Tahmin edilen harfler: -");
+
         javax.swing.GroupLayout pnlUstLayout = new javax.swing.GroupLayout(pnlUst);
         pnlUst.setLayout(pnlUstLayout);
         pnlUstLayout.setHorizontalGroup(
@@ -254,6 +295,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(lblTahminler, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
         javax.swing.GroupLayout pnlKelimeLayout = new javax.swing.GroupLayout(pnlKelime);
         pnlKelime.setLayout(pnlKelimeLayout);
         pnlKelimeLayout.setHorizontalGroup(
@@ -264,6 +306,7 @@ public class AdamAsmacaForm extends JFrame {
             pnlKelimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 146, Short.MAX_VALUE)
         );
+
         btnIpucu.setText("Ipucu Al");
         btnIpucu.setEnabled(false);
         btnIpucu.addActionListener(new java.awt.event.ActionListener() {
@@ -271,7 +314,9 @@ public class AdamAsmacaForm extends JFrame {
                 btnIpucuActionPerformed(evt);
             }
         });
+
         lblIpucu.setText("Ipucu: 10. hatadan sonra acilir.");
+
         javax.swing.GroupLayout pnlIpucuLayout = new javax.swing.GroupLayout(pnlIpucu);
         pnlIpucu.setLayout(pnlIpucuLayout);
         pnlIpucuLayout.setHorizontalGroup(
@@ -289,30 +334,37 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(btnIpucu)
                 .addComponent(lblIpucu))
         );
+
         lblHarfTahmini.setText("Harf Tahmini:");
+
         txtHarf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHarfActionPerformed(evt);
             }
         });
+
         lblKelimeTahmini.setText("Kelime Tahmini:");
+
         txtKelime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKelimeActionPerformed(evt);
             }
         });
+
         btnHarf.setText("Harf Tahmin Et");
         btnHarf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHarfActionPerformed(evt);
             }
         });
+
         btnKelime.setText("Kelime Tahmin Et");
         btnKelime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKelimeActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout pnlTahminLayout = new javax.swing.GroupLayout(pnlTahmin);
         pnlTahmin.setLayout(pnlTahminLayout);
         pnlTahminLayout.setHorizontalGroup(
@@ -343,6 +395,7 @@ public class AdamAsmacaForm extends JFrame {
                     .addComponent(btnHarf)
                     .addComponent(btnKelime)))
         );
+
         javax.swing.GroupLayout pnlSolLayout = new javax.swing.GroupLayout(pnlSol);
         pnlSol.setLayout(pnlSolLayout);
         pnlSolLayout.setHorizontalGroup(
@@ -360,20 +413,24 @@ public class AdamAsmacaForm extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlTahmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
         lblResim.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblResim.setText("Ilk yanlis tahminde 1.jpg gosterilecek");
+
         btnBasla.setText("Oyuna Basla");
         btnBasla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBaslaActionPerformed(evt);
             }
         });
+
         btnYenidenBaslat.setText("Yeniden Baslat");
         btnYenidenBaslat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnYenidenBaslatActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout pnlOyunButonLayout = new javax.swing.GroupLayout(pnlOyunButon);
         pnlOyunButon.setLayout(pnlOyunButonLayout);
         pnlOyunButonLayout.setHorizontalGroup(
@@ -391,6 +448,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(btnBasla)
                 .addComponent(btnYenidenBaslat))
         );
+
         javax.swing.GroupLayout pnlSagLayout = new javax.swing.GroupLayout(pnlSag);
         pnlSag.setLayout(pnlSagLayout);
         pnlSagLayout.setHorizontalGroup(
@@ -405,6 +463,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlOyunButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
         javax.swing.GroupLayout pnlOrtaLayout = new javax.swing.GroupLayout(pnlOrta);
         pnlOrta.setLayout(pnlOrtaLayout);
         pnlOrtaLayout.setHorizontalGroup(
@@ -419,6 +478,7 @@ public class AdamAsmacaForm extends JFrame {
             .addComponent(pnlSol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlSag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
         javax.swing.GroupLayout pnlOyunTabLayout = new javax.swing.GroupLayout(pnlOyunTab);
         pnlOyunTab.setLayout(pnlOyunTabLayout);
         pnlOyunTabLayout.setHorizontalGroup(
@@ -439,27 +499,33 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(pnlOrta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
         tablar.addTab("Oyun Oynama", pnlOyunTab);
+
         tblSkorlar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+
             },
             new String [] {
                 "Tarih", "Sure", "Sonuc", "Kelime"
             }
         ));
         scrollSkor.setViewportView(tblSkorlar);
+
         btnSkorYenile.setText("Yenile");
         btnSkorYenile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSkorYenileActionPerformed(evt);
             }
         });
+
         btnSkorTemizle.setText("Temizle");
         btnSkorTemizle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSkorTemizleActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout pnlSkorButonLayout = new javax.swing.GroupLayout(pnlSkorButon);
         pnlSkorButon.setLayout(pnlSkorButonLayout);
         pnlSkorButonLayout.setHorizontalGroup(
@@ -477,6 +543,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(btnSkorYenile)
                 .addComponent(btnSkorTemizle))
         );
+
         javax.swing.GroupLayout pnlSkorTabLayout = new javax.swing.GroupLayout(pnlSkorTab);
         pnlSkorTab.setLayout(pnlSkorTabLayout);
         pnlSkorTabLayout.setHorizontalGroup(
@@ -497,27 +564,33 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(pnlSkorButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
         tablar.addTab("Eski Skorlar", pnlSkorTab);
+
         tblLoglar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+
             },
             new String [] {
                 "Tarih", "Etiket", "Aciklama"
             }
         ));
         scrollLog.setViewportView(tblLoglar);
+
         btnLogYenile.setText("Yenile");
         btnLogYenile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogYenileActionPerformed(evt);
             }
         });
+
         btnLogTemizle.setText("Temizle");
         btnLogTemizle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogTemizleActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout pnlLogButonLayout = new javax.swing.GroupLayout(pnlLogButon);
         pnlLogButon.setLayout(pnlLogButonLayout);
         pnlLogButonLayout.setHorizontalGroup(
@@ -535,6 +608,7 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(btnLogYenile)
                 .addComponent(btnLogTemizle))
         );
+
         javax.swing.GroupLayout pnlLogTabLayout = new javax.swing.GroupLayout(pnlLogTab);
         pnlLogTab.setLayout(pnlLogTabLayout);
         pnlLogTabLayout.setHorizontalGroup(
@@ -555,14 +629,18 @@ public class AdamAsmacaForm extends JFrame {
                 .addComponent(pnlLogButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
         tablar.addTab("Loglar", pnlLogTab);
-        btnKurallar.setText("Kurallar");
-        btnKurallar.addActionListener(new java.awt.event.ActionListener() {
+
+        btnInfo.setText("Info");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKurallarActionPerformed(evt);
+                btnInfoActionPerformed(evt);
             }
         });
+
         menuOyun.setText("Oyun");
+
         itemBasla.setText("Oyuna Basla");
         itemBasla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -570,6 +648,7 @@ public class AdamAsmacaForm extends JFrame {
             }
         });
         menuOyun.add(itemBasla);
+
         itemYenidenBaslat.setText("Oyunu Yeniden Baslat");
         itemYenidenBaslat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,6 +657,7 @@ public class AdamAsmacaForm extends JFrame {
         });
         menuOyun.add(itemYenidenBaslat);
         menuOyun.add(menuAyirici);
+
         itemCikis.setText("Cikis");
         itemCikis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -585,8 +665,11 @@ public class AdamAsmacaForm extends JFrame {
             }
         });
         menuOyun.add(itemCikis);
+
         menuBar.add(menuOyun);
+
         menuKayitlar.setText("Kayitlar");
+
         itemTablolariYenile.setText("Tablolari Yenile");
         itemTablolariYenile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -594,8 +677,11 @@ public class AdamAsmacaForm extends JFrame {
             }
         });
         menuKayitlar.add(itemTablolariYenile);
+
         menuBar.add(menuKayitlar);
+
         setJMenuBar(menuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -603,7 +689,7 @@ public class AdamAsmacaForm extends JFrame {
             .addComponent(tablar)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnKurallar)
+                .addComponent(btnInfo)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -611,8 +697,9 @@ public class AdamAsmacaForm extends JFrame {
             .addComponent(tablar)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnKurallar))
+                .addComponent(btnInfo))
         );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void btnBaslaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaslaActionPerformed
@@ -621,9 +708,9 @@ public class AdamAsmacaForm extends JFrame {
     private void btnYenidenBaslatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYenidenBaslatActionPerformed
         oyunuBaslat();
     }//GEN-LAST:event_btnYenidenBaslatActionPerformed
-    private void btnKurallarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurallarActionPerformed
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         girisMesaji();
-    }//GEN-LAST:event_btnKurallarActionPerformed
+    }//GEN-LAST:event_btnInfoActionPerformed
     private void btnHarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHarfActionPerformed
         harfTahminEt();
     }//GEN-LAST:event_btnHarfActionPerformed
@@ -667,8 +754,11 @@ public class AdamAsmacaForm extends JFrame {
     private void girisMesaji() {
         JOptionPane.showMessageDialog(this,
                 "Adam Asmaca Oyununa Hos Geldiniz\n"
+                + "Oyuna Basla butonu ile yeni oyun baslatilir.\n"
                 + "11 yanlis tahmin hakkiniz vardir.\n"
-                + "Harf veya kelime tahmini yapabilirsiniz.\n"
+                + "Harf tahmini icin kutuya harf yazabilir ya da ustteki alfabe tuslarina basabilirsiniz.\n"
+                + "Kelime tahmini alanindan kelimenin tamamini deneyebilirsiniz.\n"
+                + "10. yanlis tahminden sonra Ipucu Al butonu aktif olur.\n"
                 + "Skorlar ve loglar sekmelerden goruntulenebilir.",
                 "Oyun Bilgilendirme", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -1200,11 +1290,11 @@ public class AdamAsmacaForm extends JFrame {
     private javax.swing.JButton btnHarf;
     private javax.swing.JButton btnI;
     private javax.swing.JButton btnIi;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnIpucu;
     private javax.swing.JButton btnJ;
     private javax.swing.JButton btnK;
     private javax.swing.JButton btnKelime;
-    private javax.swing.JButton btnKurallar;
     private javax.swing.JButton btnL;
     private javax.swing.JButton btnLogTemizle;
     private javax.swing.JButton btnLogYenile;

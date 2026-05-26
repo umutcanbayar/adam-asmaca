@@ -85,7 +85,7 @@
           <Component id="tablar" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnKurallar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -95,7 +95,7 @@
           <Component id="tablar" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnKurallar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnInfo" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -843,12 +843,12 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnKurallar">
+    <Component class="javax.swing.JButton" name="btnInfo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kurallar"/>
+        <Property name="text" type="java.lang.String" value="Info"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKurallarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInfoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

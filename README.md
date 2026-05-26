@@ -27,7 +27,7 @@ Projeyi GitHub'a yuklerken ana proje klasoru olarak `mavenproject3` klasoru kull
 - Oyun bitince sonuc, sure, tarih ve kelime `oyunlar.txt` dosyasina kaydedilir.
 - Eski skorlar ve loglar tablolarda `JTable` ile gosterilir.
 - Skor ve log dosyalari sifre dogrulamasi yapildiktan sonra temizlenebilir.
-- Kurallari tekrar gostermek icin `Kurallar` butonu vardir.
+- Oyun hakkinda bilgi almak icin `Info` butonu vardir.
 - 10. yanlis tahminden sonra oyuncu isterse ipucu alabilir.
 
 ## Dosya Yapisi
