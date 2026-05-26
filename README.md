@@ -48,8 +48,7 @@ C:\P2Oyun
     |-- sifre.txt
 ```
 
-`kelimeler.txt` dosyasina kelimeler tek basina ya da ipucu ile birlikte yazilabilir.
-
+## kelimeler.txt
 ```text
 Kutuphane;Kitaplarla ilgili bir yer
 Bilgisayar;Klavye ve ekranla kullanilir
